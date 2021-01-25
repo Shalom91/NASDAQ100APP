@@ -24,5 +24,8 @@ def load_data():
 df = load_data()
 sector = df.groupby('GICS Sector')
 
+# Sidebar: Sector selection
+sorted_sector = sorted(df['GICS Sector'].unique())
+selected_sector = st.sidebar.multiselect("Sector", sorted_sector)
 
 
