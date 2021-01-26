@@ -28,4 +28,9 @@ sector = df.groupby('GICS Sector')
 sorted_sector = sorted(df['GICS Sector'].unique())
 selected_sector = st.sidebar.multiselect("Sector", sorted_sector)
 
+# Filter Data
+df_selected_sector = df[(df['GICS Sector'].isin(selected_sector))]
 
+st.header("Display Companies in Selected Sector")
+st.write("Data Dimension: " + str(df_selected_sector.shape[0]) + " and " + str(df_selected_sector.shape[1]) + " columns")
+st.dataframe(df_selected_sector)
